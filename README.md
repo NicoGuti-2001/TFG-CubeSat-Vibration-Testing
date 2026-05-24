@@ -1,6 +1,6 @@
 The following archives are the Matlab codes corresponding to each individual vibration test.
 
-MESA was made first, it contains notes with additional information and the process of its creation. 
+  MESA was made first, it contains notes with additional information and the process of its creation. 
   -It loads the information from a .mat file, that usually contains this information:
       *Acceleration magnitude of the sensors
       *Time of each sensor
@@ -14,7 +14,7 @@ MESA was made first, it contains notes with additional information and the proce
   -Then calculates and plots the transfer function of each sensor using 'tfestimate'
   -Finally it gets the maxs. and mins. of the TF 
 
-  TestCubeI & TestCubeP use the same code as MESA, but add a couple of steps:
+    TestCubeI & TestCubeP use the same code as MESA, but add a couple of steps:
     -After changing the variable´s names, it creates a new varaible called 'accel' 
       *'accel' is the difference between the acceleration of the sensor placed in one corner of the structure and the adjacent sensor of the table
     -After estimating the Transfer Function of each sensor, it does not plot them
