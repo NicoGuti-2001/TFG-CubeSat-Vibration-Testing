@@ -62,6 +62,7 @@ hold on
 for z=1:8
     [tf(:,z), frec(:,z)] = tfestimate(exc,a(z,:),hann(winlen), 0.5*winlen, [],Sample_rate);
     tfestimate(exc,a(z,:),hann(winlen), 0.5*winlen, [],Sample_rate)
+    xscale log
 end
 hold off
 legend('sensor 1','sensor 2','sensor 3','sensor 4','sensor 5','sensor 6','sensor 7','sensor 8')
@@ -72,6 +73,7 @@ hold on
 for w=1:4
     [tfr(:,w), frecr(:,w)] = tfestimate(exc,acel(w,:),hann(winlen), 0.5*winlen, [],Sample_rate);
     tfestimate(exc,acel(w,:),hann(winlen), 0.5*winlen, [],Sample_rate)
+    xscale log
 end
 hold off
 legend('Esquina 5','Esquina 6','Esquina 7','Esquina 8')
