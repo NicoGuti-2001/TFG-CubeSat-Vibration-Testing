@@ -54,6 +54,7 @@ hold on
 for z=1:8
     [tf(:,z), frec(:,z)] = tfestimate(Data1_AO_3__59__Shaker_grande,a(z,:),hann(winlen), 0.5*winlen, [],Sample_rate);
     tfestimate(Data1_AO_3__59__Shaker_grande,a(z,:),hann(winlen), 0.5*winlen, [],Sample_rate)
+    xscale log
     end
 hold off
 legend('sensor 1','sensor 2','sensor 3','sensor 4','sensor 5','sensor 6','sensor 7','sensor 8')
@@ -87,6 +88,7 @@ vall5 = -1*vall5;
 vall6 = -1*vall6;
 vall7 = -1*vall7;
 vall8 = -1*vall8;
+
 %% Notas
 % https://www.mathworks.com/help/signal/ref/modalfrf.html#bvkxa2t-2
 % winlen = size(Data1_AO_3__59__Shaker_grande,1);
