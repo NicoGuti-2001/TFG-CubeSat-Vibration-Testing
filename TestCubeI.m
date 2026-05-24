@@ -73,11 +73,15 @@ figure(5)
 hold on
 for w=1:4
     [tfr(:,w), frecr(:,w)] = tfestimate(exc,acel(w,:),hann(winlen), 0.5*winlen, [],Sample_rate);
-    tfestimate(exc,acel(w,:),hann(winlen), 0.5*winlen, [],Sample_rate)
+    % tfestimate(exc,acel(w,:),hann(winlen), 0.5*winlen, [],Sample_rate) auto-plot FRF
+    plot(frecr(:,w), mag2db(abs(tfr(:,w))))
     xscale log
 end
 hold off
 legend('Esquina 5','Esquina 6','Esquina 7','Esquina 8')
+grid on
+xlabel('Frecuencia (Hz)')
+ylabel('Magnitud (dB)')
 
 %% Picos FRF
 idx = find(frecr(:,1)>400,1); %para mejorar resolucion y tiempo calculo
