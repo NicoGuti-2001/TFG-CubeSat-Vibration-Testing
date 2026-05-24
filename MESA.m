@@ -53,11 +53,15 @@ figure(4)
 hold on
 for z=1:8
     [tf(:,z), frec(:,z)] = tfestimate(Data1_AO_3__59__Shaker_grande,a(z,:),hann(winlen), 0.5*winlen, [],Sample_rate);
-    tfestimate(Data1_AO_3__59__Shaker_grande,a(z,:),hann(winlen), 0.5*winlen, [],Sample_rate)
+    % tfestimate(Data1_AO_3__59__Shaker_grande,a(z,:),hann(winlen), 0.5*winlen, [],Sample_rate) auto plot FRF
+    plot(frec(:,z), mag2db(abs(tf(:,z))))
     xscale log
     end
 hold off
 legend('sensor 1','sensor 2','sensor 3','sensor 4','sensor 5','sensor 6','sensor 7','sensor 8')
+grid on
+xlabel('Frecuencia (Hz)')
+ylabel('Magnitud (dB)')
 
 %% Calcular máximos y mínimos
 idx = find(frec(:,1)>1000,1); %para mejorar resolucion y tiempo calculo - frec es la misma para todos
