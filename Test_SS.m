@@ -31,17 +31,133 @@ am(6,:) = 9.81*a(1,:);
 am(7,:) = 9.81*a(1,:);
 am(8,:) = 9.81*a(1,:);
 
-%% Plots aceleración/velocidad/posición
+%% Plots aceleración
 figure(1)
-plot(t,a(1,:))      %1 por ejemplo
+tiledlayout(3,1)
+nexttile
+plot(t,a(1,:))
+%xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+title('Esquina 5')
+
+nexttile
+plot(t,a(7,:))
+%xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+title('Sensor 7')
+
+nexttile
+hold on
+plot(t,a(1,:))     %Esquina 5
+plot(t,a(7,:))      %Sensor 7
 xlabel('time (s)')
 ylabel('acceleration (g)')
+ylim([-10 10])
 grid on
+legend('Esquina 5', 'Sensor 7')
+hold off
+title('Comparativa de ambas señales')
 
+figure(2)
+tiledlayout(3,1)
+nexttile
+plot(t,a(3,:))
+% xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+title('Esquina 6')
+
+nexttile
+plot(t,a(6,:))
+% xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+title('Sensor 6')
+
+nexttile
+hold on
+plot(t,a(3,:))     %Esquina 5
+plot(t,a(6,:))      %Sensor 7
+xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+legend('Esquina 6', 'Sensor 6')
+hold off
+title('Comparativa de ambas señales')
+
+figure(3)
+tiledlayout(3,1)
+nexttile
+plot(t,a(2,:))
+% xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+title('Esquina 7')
+
+nexttile
+plot(t,a(4,:))
+% xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+title('Sensor 4')
+
+nexttile
+hold on
+plot(t,a(2,:))     %Esquina 7
+plot(t,a(4,:))      %Sensor 4
+xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+legend('Esquina 7', 'Sensor 4')
+hold off
+title('Comparativa de ambas señales')
+
+figure(4)
+tiledlayout(3,1)
+nexttile
+plot(t,a(8,:))
+%xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+title('Esquina 8')
+
+nexttile
+plot(t,a(5,:))
+%xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+title('Sensor 5')
+
+nexttile
+hold on
+plot(t,a(8,:))     %Esquina 5
+plot(t,a(5,:))      %Sensor 7
+xlabel('time (s)')
+ylabel('acceleration (g)')
+ylim([-10 10])
+grid on
+legend('Esquina 8', 'Sensor 5')
+hold off
+title('Comparativa de ambas señales')
+
+
+%% Plots velocidad/posición
 for i=1:8
     v(i,:) = cumtrapz(t,am(i,:));
 end
-figure(2)
+figure(5)
 plot(t,v(1,:))      %1 por ejemplo
 xlabel('time (s)')
 ylabel('velocity (m/s)')
@@ -50,7 +166,7 @@ grid on
 for j=1:8
     p(j,:) = cumtrapz(t,v(j,:));
 end
-figure(3)
+figure(6)
 plot(t,p(1,:))      %1 por ejemplo
 xlabel('time (s)')
 ylabel('position (m)')
